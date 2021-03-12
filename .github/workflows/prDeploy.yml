@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build React WebApp
-        run: npm build
+        run: npm run build
 
       - uses: nelonoel/branch-name@v1.0.1
       - uses: jsmrcaga/action-netlify-deploy@master
