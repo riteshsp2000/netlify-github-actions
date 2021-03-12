@@ -24,20 +24,17 @@ jobs:
       - name: Build React WebApp
         run: npm run build
 
-      - uses: nelonoel/branch-name@v1.0.1
-      - uses: jsmrcaga/action-netlify-deploy@master
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
         with:
+          publish-dir: './build'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Preview Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: false
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          deploy_alias: ${{ env.BRANCH_NAME }}
-      
-      - name: Status check
-        uses: Sibz/github-status-action@v1.1.1
-        with:
-          authToken: ${{ secrets.GITHUB_TOKEN }}
-          context: Netlify preview
-          state: success
-          target_url: https://${{ env.BRANCH_NAME }}--my-site.netlify.app
 
       - name: removelabel
         uses: buildsville/add-remove-label@v1
