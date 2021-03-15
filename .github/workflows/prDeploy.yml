@@ -4,6 +4,9 @@ on:
   pull_request:
     types: [labeled]
 
+env:
+  REACT_ENV_TRIAL: ${{secrets.REACT_ENV_TRIAL}}
+
 jobs:
   netlify-pr-preview:
     name: Netlify Development Deploy
