@@ -4,9 +4,6 @@ on:
   pull_request:
     types: [labeled]
 
-env:
-  REACT_APP_ENV_TRIAL: ${{secrets.REACT_APP_ENV_TRIAL}}
-
 jobs:
   netlify-pr-preview:
     name: Netlify Development Deploy
@@ -20,6 +17,9 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: '14.x'
+
+      - name: Set Environment Variables
+        run: export REACT_APP_ENV_TRIAL=${{secrets.REACT_APP_ENV_TRIAL}}
 
       - name: Install Dependencies
         run: npm ci
