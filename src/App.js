@@ -19,7 +19,7 @@ function App() {
         >
           Learn React and Deploy to Netlify with GitHub Actions
         </a>
-        <p>{process.env.REACT_ENV_TRIAL}</p>
+        <p>{process.env.REACT_APP_ENV_TRIAL}</p>
       </header>
     </div>
   )

@@ -5,7 +5,7 @@ on:
     types: [labeled]
 
 env:
-  REACT_ENV_TRIAL: ${{secrets.REACT_ENV_TRIAL}}
+  REACT_APP_ENV_TRIAL: ${{secrets.REACT_APP_ENV_TRIAL}}
 
 jobs:
   netlify-pr-preview:
