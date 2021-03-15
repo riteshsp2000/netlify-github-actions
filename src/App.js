@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React and Deploy to Netlify with GitHub Actions
+          Learn React and Deploy to Netlify with GitHub Actions!
         </a>
         <p>{process.env.REACT_APP_ENV_TRIAL}</p>
       </header>
