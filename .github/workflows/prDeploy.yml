@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: '14.x'
 
+      - name: Set Environment Variables
+        run: |
+          export REACT_APP_ENV_TRIAL=${{secrets.REACT_APP_ENV_TRIAL}}
+          export REACT_APP_ENV_TRIAL2=${{secrets.REACT_APP_ENV_TRIAL2}}
+
       - name: Install Dependencies
         run: npm ci
 
@@ -29,7 +34,7 @@ jobs:
         with:
           publish-dir: './build'
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Preview Deploy from GitHub Actions"
+          deploy-message: 'Preview Deploy from GitHub Actions'
           enable-pull-request-comment: true
           enable-commit-comment: false
         env:

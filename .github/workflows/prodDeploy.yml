@@ -17,6 +17,11 @@ jobs:
         with:
           node-version: '14.x'
 
+      - name: Set Environment Variables
+        run: |
+          export REACT_APP_ENV_TRIAL=${{secrets.REACT_APP_ENV_TRIAL}}
+          export REACT_APP_ENV_TRIAL2=${{secrets.REACT_APP_ENV_TRIAL2}}
+
       - name: Install Dependencies
         run: npm ci
 
@@ -34,7 +39,7 @@ jobs:
           enable-pull-request-comment: false
           enable-commit-comment: false
           overwrites-pull-request-comment: false
-          enable-commit-status: false 
+          enable-commit-status: false
 
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
